@@ -6,6 +6,7 @@ export default function App() {
   //definir los estados (variables) de este componente
   const [numero1, setNumero1] = useState('');
   const [numero2, setNumero2]= useState('');
+  const [resultado, setResultado]=setState('0');
   //definir funciones o métodos
   function validar(){
     if (numero1 == '' || numero2 ==''){
@@ -18,6 +19,23 @@ export default function App() {
   const limpiar = function(){
     setNumero2("");
     setNumero1("");
+  }
+  function multi(){
+    multi = numero1 * numero2;
+    alert(multi);
+
+  }
+  function division(){
+    division = numero1 / numero2;
+    alert(division);
+  }
+  function suma(){
+    suma=(numero1 + numero2);
+    alert(suma);
+  }
+  function resta(){
+    resta = numero1 - numero2;
+    alert(resta);
   }
   return (
     <View style={styles.container}>
@@ -43,22 +61,27 @@ export default function App() {
       <Text>{'\n'}</Text>
       <Button
         title="*"
-        onPress={validar}
+        onPress={multi}
       >
 
       </Button>
       <Button
         title="/"
+        onPress={division}
+
       >
 
       </Button>
       <Button
         title="+"
+        onPress={suma}
       >
 
       </Button>
       <Button
         title="-"
+        onPress={resta}
+        
       >
 
       </Button>
@@ -69,6 +92,9 @@ export default function App() {
       >
 
       </Button>
+      <TextInput
+      value={suma,resta,multi,division}
+      ></TextInput>
     </View>
   );
 }
