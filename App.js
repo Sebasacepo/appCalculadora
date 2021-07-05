@@ -6,7 +6,8 @@ export default function App() {
   //definir los estados (variables) de este componente
   const [numero1, setNumero1] = useState('');
   const [numero2, setNumero2]= useState('');
-  const [resultado, setResultado]=setState('0');
+  const [resultado, setResultado]=useState('0');
+ 
   //definir funciones o métodos
   function validar(){
     if (numero1 == '' || numero2 ==''){
@@ -21,22 +22,23 @@ export default function App() {
     setNumero1("");
   }
   function multi(){
-    multi = numero1 * numero2;
-    alert(multi);
+    setResultado(numero1 * numero2);
+    
 
   }
   function division(){
-    division = numero1 / numero2;
-    alert(division);
+    setResultado(numero1 / numero2);
+    
   }
   function suma(){
-    suma=(numero1 + numero2);
-    alert(suma);
+    setResultado(numero1 + numero2);
+    
   }
   function resta(){
-    resta = numero1 - numero2;
-    alert(resta);
+
+    setResultado(numero1 - numero2);
   }
+  
   return (
     <View style={styles.container}>
       <Text>Calculadora</Text>
@@ -62,6 +64,7 @@ export default function App() {
       <Button
         title="*"
         onPress={multi}
+       
       >
 
       </Button>
@@ -93,7 +96,8 @@ export default function App() {
 
       </Button>
       <TextInput
-      value={suma,resta,multi,division}
+      value={resultado}
+
       ></TextInput>
     </View>
   );
